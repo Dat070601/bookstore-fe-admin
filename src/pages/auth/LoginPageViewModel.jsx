@@ -33,7 +33,7 @@ const LoginPageViewModel = () => {
 
     useEffect(() => {
         if (isSuccess != false) {
-            window.location.href = "/home"
+            window.location.href = "/#/home"
         }
         else {
             navigate("/login")

@@ -40,10 +40,10 @@ const Login = () => {
                 <Box h="46vh" display={"flex"} flexDir={"column"} justifyContent={"flex-start"} alignItems={"center"}>
                     <Logo fontSize={55} />
                     <Box display={"flex"} flexDir={"column"}>
-                        <Text float={'left'} fontFamily={'Arial'} fontSize={'xl'}>Kênh chủ cửa hàng</Text>
+                        <Text float={'left'} fontFamily={'Arial'} fontSize={'xl'}>Kênh quản lý</Text>
                         <Box>
-                            <Text float={'left'}>Quản lý shop của bạn một cách hiệu quả hơn trên</Text>
-                            <Text>trang web kênh chủ cửa hàng của chúng tôi</Text>
+                            <Text float={'left'}>Quản lý cửa hàng của bạn một cách hiệu quả hơn trên</Text>
+                            <Text>kênh quản lý của chúng tôi</Text>
                         </Box>
                         <Image mt="10px" src='https://res.cloudinary.com/duu07kasy/image/upload/v1684232635/mQqMQZthNHJKyVi_sixg7w.png' h={300}/>
                     </Box>

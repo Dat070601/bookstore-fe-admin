@@ -5,9 +5,13 @@ import './App.css'
 import { Router, Routes, Route, useNavigate } from 'react-router-dom'
 import Login from './pages/auth'
 import useLocalStorage from '../../CapStone_Project_FE/src/hooks/useLocalStorage'
-import { useDisclosure } from '@chakra-ui/react'
+import { Switch, useDisclosure } from '@chakra-ui/react'
 import AlertLoginModal from '../../CapStone_Project_FE/src/components/AlertLoginModal'
 import Home from './pages/home'
+import Sidebar from './components/sidebar/sidebar'
+import Navbar from './components/Navbar/Navbar'
+import Dashboard from './components/Dashboard/Dashboard'
+import AddProduct from './pages/addProduct'
 
 function  App() {
   const [count, setCount] = useState(0)
@@ -47,8 +51,11 @@ function  App() {
           }}
       />
       <Routes>
-        <Route index path='/' element={<Login/>}></Route>
-        <Route path='/home' element={<Home/>}></Route>
+        <Route index path='/' element={<Login />}></Route>
+        <Route element={<Sidebar />}>
+          <Route path='home' element={<Home />}></Route>
+          <Route path='add-product' element={<AddProduct />}></Route>
+        </Route>
       </Routes>
     </div>
   )

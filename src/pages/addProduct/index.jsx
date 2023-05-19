@@ -1,15 +1,13 @@
-import { Box } from '@chakra-ui/react'
 import React from 'react'
+import { Box } from '@chakra-ui/react'
 import CustomContainer from '../../components/root/CustomContainer'
 
-const Home = () => {
+const AddProduct = () => {
   return (
     <CustomContainer>
-      <Box>
-        <h1>Home</h1>
-      </Box>
+        <Box>AddProduct</Box>
     </CustomContainer>
   )
 }
 
-export default Home
+export default AddProduct
