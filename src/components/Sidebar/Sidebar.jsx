@@ -3,20 +3,20 @@ import { Box, Flex, List, Spacer, Stack, Text, ListItem, OrderedList, UnorderedL
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Logo from "../Logo";
+import { AiOutlineArrowRight } from "react-icons/ai";
 
 const Sidebar = () => {
 
     const navigate = useNavigate()
     return (
         <>
-            <Box bg="gray.100" h="100vh" w="250px" p="4" position={"absolute"} zIndex={1} borderRight={"1px solid teal"}>
+            <Box bg="white" h="100%" w="250px" p="4" position={"absolute"} zIndex={1}>
                 <Box as="a" href="/home" display="block" borderColor={'teal'} border={1} mb={5}>
-                    <Logo fontSize={28}/>
-                    <Text fontWeight={'medium'} fontSize={15}>Kênh quản lý</Text>
+                    <Logo fontSize={35}/>
                 </Box>
                 <Stack spacing="0">
                     <Accordion>
-                        <AccordionItem>
+                        <AccordionItem borderColor="transparent" borderWidth="0">
                             <AccordionButton onClick={() => {
                                 navigate("/home")
                             }}>
@@ -25,7 +25,7 @@ const Sidebar = () => {
                         </AccordionItem>
                     </Accordion>
                     <Accordion>
-                        <AccordionItem>
+                        <AccordionItem borderColor="transparent" borderWidth="0">
                             <AccordionButton onClick={() => {
                                 navigate("/order")
                             }}>
@@ -34,7 +34,7 @@ const Sidebar = () => {
                         </AccordionItem>
                     </Accordion>
                     <Accordion>
-                        <AccordionItem>
+                        <AccordionItem borderColor="transparent" borderWidth="0">
                             <AccordionButton onClick={() => {
                                 navigate("/category")
                             }}>
@@ -43,23 +43,29 @@ const Sidebar = () => {
                         </AccordionItem>
                     </Accordion>
                     <Accordion allowToggle>
-                        <AccordionItem>
-                            <AccordionButton>
+                        <AccordionItem borderColor="transparent" borderWidth="0">
+                            <AccordionButton gap={'15px'}>
                                 <Box>
                                     <Text>Quản lý sản phẩm</Text>
                                 </Box>
                             <AccordionIcon />
                             </AccordionButton>
                             <AccordionPanel>
-                                <AccordionItem>
+                                <AccordionItem borderColor="transparent" borderWidth="0">
                                     <AccordionButton>
-                                        <Box>
+                                        <Box display={'flex'} gap={2}>
+                                            <Box mt={1}>
+                                                <AiOutlineArrowRight/>
+                                            </Box>
                                             <Link to="/add-product">Thêm sản phẩm</Link>
                                         </Box>
                                     </AccordionButton>
                                     <AccordionButton>
-                                        <Box>
-                                            <Text>Sửa sản phẩm</Text>
+                                        <Box display={'flex'} gap={2}>
+                                            <Box mt={1}>
+                                                <AiOutlineArrowRight/>
+                                            </Box>
+                                            <Link to={""}>Sửa sản phẩm</Link>
                                         </Box>
                                     </AccordionButton>
                                 </AccordionItem>
@@ -67,7 +73,7 @@ const Sidebar = () => {
                         </AccordionItem>
                     </Accordion>
                     <Accordion>
-                        <AccordionItem>
+                        <AccordionItem borderColor="transparent" borderWidth="0">
                             <AccordionButton onClick={() => {
                                 navigate("/dashboard")
                             }}>
@@ -76,7 +82,7 @@ const Sidebar = () => {
                         </AccordionItem>
                     </Accordion>
                     <Accordion>
-                        <AccordionItem>
+                        <AccordionItem borderColor="transparent" borderWidth="0">
                             <AccordionButton onClick={() => {
                                 navigate("/finance")
                             }}>

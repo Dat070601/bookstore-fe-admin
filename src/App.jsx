@@ -4,14 +4,14 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Router, Routes, Route, useNavigate } from 'react-router-dom'
 import Login from './pages/auth'
-import useLocalStorage from '../../CapStone_Project_FE/src/hooks/useLocalStorage'
 import { Switch, useDisclosure } from '@chakra-ui/react'
-import AlertLoginModal from '../../CapStone_Project_FE/src/components/AlertLoginModal'
 import Home from './pages/home'
 import Sidebar from './components/sidebar/sidebar'
 import Navbar from './components/Navbar/Navbar'
 import Dashboard from './components/Dashboard/Dashboard'
 import AddProduct from './pages/addProduct'
+import AlertLoginModal from './components/AlertLoginModal'
+import useLocalStorage from './hooks/useLocalStorage'
 
 function  App() {
   const [count, setCount] = useState(0)

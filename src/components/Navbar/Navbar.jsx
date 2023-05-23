@@ -4,10 +4,10 @@ import { AiFillBell } from 'react-icons/ai'
 
 const Navbar = () => {
     return (
-      <Flex bg="gray.100" h="60px" px="4" justifyContent={"flex-end"} alignItems={"center"} pr="30px">
+      <Flex bg="white" h="60px" px="4" justifyContent={"flex-end"} alignItems={"center"} pr="30px">
+        <Text fontWeight={'medium'} fontSize={15}>Kênh quản lý</Text>
         <Box display={"flex"} gap={"10px"}>
             <IconButton icon={<AiFillBell size={"20px"} color="teal"/>} />
-          {/* Thêm button hình chuông thông báo ở đây */}
           <Menu>
             <MenuButton>
                 <Text fontWeight={"medium"}>Admin</Text>
