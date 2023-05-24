@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Flex, List, Spacer, Stack, Text, ListItem, OrderedList, UnorderedList, Accordion, AccordionItem, AccordionIcon, AccordionButton, AccordionPanel } from "@chakra-ui/react";
+import { Box, Flex, List, Spacer, Stack, Text, ListItem, OrderedList, UnorderedList, Accordion, AccordionItem, AccordionIcon, AccordionButton, AccordionPanel, background } from "@chakra-ui/react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Logo from "../Logo";
@@ -19,7 +19,7 @@ const Sidebar = () => {
                         <AccordionItem borderColor="transparent" borderWidth="0">
                             <AccordionButton onClick={() => {
                                 navigate("/home")
-                            }}>
+                            }} _hover={{bg:"gray.200"}}>
                                 Trang chủ
                             </AccordionButton>
                         </AccordionItem>
@@ -28,7 +28,7 @@ const Sidebar = () => {
                         <AccordionItem borderColor="transparent" borderWidth="0">
                             <AccordionButton onClick={() => {
                                 navigate("/order")
-                            }}>
+                            }} _hover={{bg:"gray.200"}}>
                                 Quản lý đơn hàng
                             </AccordionButton>
                         </AccordionItem>
@@ -37,14 +37,14 @@ const Sidebar = () => {
                         <AccordionItem borderColor="transparent" borderWidth="0">
                             <AccordionButton onClick={() => {
                                 navigate("/category")
-                            }}>
+                            }} _hover={{bg:"gray.200"}}>
                                 Quản lý danh mục
                             </AccordionButton>
                         </AccordionItem>
                     </Accordion>
                     <Accordion allowToggle>
                         <AccordionItem borderColor="transparent" borderWidth="0">
-                            <AccordionButton gap={'15px'}>
+                            <AccordionButton gap={'15px'} _hover={{bg:"gray.200"}}>
                                 <Box>
                                     <Text>Quản lý sản phẩm</Text>
                                 </Box>
@@ -52,7 +52,7 @@ const Sidebar = () => {
                             </AccordionButton>
                             <AccordionPanel>
                                 <AccordionItem borderColor="transparent" borderWidth="0">
-                                    <AccordionButton>
+                                    <AccordionButton  _hover={{bg:"gray.200"}}>
                                         <Box display={'flex'} gap={2}>
                                             <Box mt={1}>
                                                 <AiOutlineArrowRight/>
@@ -60,7 +60,7 @@ const Sidebar = () => {
                                             <Link to="/add-product">Thêm sản phẩm</Link>
                                         </Box>
                                     </AccordionButton>
-                                    <AccordionButton>
+                                    <AccordionButton  _hover={{bg:"gray.200"}}>
                                         <Box display={'flex'} gap={2}>
                                             <Box mt={1}>
                                                 <AiOutlineArrowRight/>
@@ -76,7 +76,7 @@ const Sidebar = () => {
                         <AccordionItem borderColor="transparent" borderWidth="0">
                             <AccordionButton onClick={() => {
                                 navigate("/dashboard")
-                            }}>
+                            }} _hover={{bg:"gray.200"}}>
                                 Chỉ số
                             </AccordionButton>
                         </AccordionItem>
@@ -85,7 +85,7 @@ const Sidebar = () => {
                         <AccordionItem borderColor="transparent" borderWidth="0">
                             <AccordionButton onClick={() => {
                                 navigate("/finance")
-                            }}>
+                            }} _hover={{bg:"gray.200"}}>
                                 Tài Chính
                             </AccordionButton>
                         </AccordionItem>
