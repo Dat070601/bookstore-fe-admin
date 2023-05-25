@@ -1,12 +1,16 @@
-import { Box, Flex, Text, Image, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Icon } from "@chakra-ui/react";
+import { Box, Flex, Text, Image, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Icon, TableContainer, Table, Tbody, Tr, Td, Th, Thead } from "@chakra-ui/react";
 import React from 'react'
 import CustomContainer from '../../components/root/CustomContainer'
 import { MdHome} from "react-icons/md";
 import { AiOutlineLineChart } from "react-icons/ai";
 import { BsBookmark } from "react-icons/bs";
 import { RiVipDiamondLine } from "react-icons/ri";
+import HomePageViewModel from "./HomePageViewModel";
+import { COLOR } from "../../constant";
 
 const Home = () => {
+  const { booksBestSeller } = HomePageViewModel()
+  console.log(booksBestSeller)
   return (    
     <CustomContainer>
         <Flex alignItems="center" mb={6}>
@@ -43,6 +47,41 @@ const Home = () => {
           <Text fontSize="sm">Increased by 5%</Text>
         </Box>
       </Flex> 
+      <Box rounded={"20px"} boxShadow={"xl"} bg="white" mt="30px" padding={"20px"}>
+          <Text fontSize={'xl'} fontWeight={'semibold'}>Các sản phẩm bán chạy nhất hiện nay:</Text>
+          <Box mt={'20px'}> 
+            <TableContainer  border={'1px'} borderRadius={'10px'} borderColor={'gray.100'}>
+              <Table variant='simple' colorScheme={'gray'} size={'sm'}>
+                <Thead>
+                  <Tr>
+                    <Th textAlign={'center'} fontSize={"md"}>#</Th>
+                    <Th textAlign={'center'} fontSize={"md"}>Tên Sách</Th>
+                    <Th textAlign={'center'} fontSize={"md"}>Thể loại</Th>
+                    <Th textAlign={'center'} fontSize={"md"}>Tác giả</Th>
+                    <Th textAlign={'center'} fontSize={"md"}>Số lượng</Th>
+                    <Th textAlign={'center'} fontSize={"md"}>Giá/1sp</Th>
+                    <Th textAlign={'center'} fontSize={"md"}>Đã bán</Th>
+                  </Tr>
+                </Thead>
+                <Tbody>
+                  {booksBestSeller?.map(book => {
+                    return(
+                      <Tr>
+                        <Th alignItems={'center'} justifyContent={'center'} display={'flex'}><Image src={book.imageUrl} boxSize={100}/></Th>
+                        <Td textAlign={'center'} fontSize={"md"}>{book.title}</Td>
+                        <Td textAlign={'center'} fontSize={"md"}>{book.nameCategory}</Td>
+                        <Td textAlign={'center'} fontSize={"md"}>{book.author}</Td>
+                        <Td textAlign={'center'} fontSize={"md"}>{book.quantity}</Td>
+                        <Td textAlign={'center'} fontSize={"md"}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND'}).format(book.price)}</Td>
+                        <Td textAlign={'center'} fontSize={"md"}>{book.sold}</Td>
+                      </Tr>
+                    )
+                  })}
+                </Tbody>
+              </Table>
+            </TableContainer>
+          </Box>
+        </Box>
     </CustomContainer>
   )
 }
