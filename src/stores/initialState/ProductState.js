@@ -4,5 +4,6 @@ export const productState = {
     booksBestSeller : [],
     booksTopNew : [],
     booksSameCate : [],
-    page : 0
+    page : 0,
+    bookCount: 0
 }

@@ -44,13 +44,12 @@ const Sidebar = () => {
                     </Accordion>
                     <Accordion allowToggle>
                         <AccordionItem borderColor="transparent" borderWidth="0">
-                            <AccordionButton gap={'15px'} _hover={{bg:"gray.200"}}>
-                                <Box>
-                                    <Text>Quản lý sản phẩm</Text>
-                                </Box>
-                            <AccordionIcon />
+                            <AccordionButton gap={'15px'} _hover={{bg:"gray.200"}} onClick={() =>{
+                                navigate("/product")
+                            }}>
+                                Quản lý sản phẩm
                             </AccordionButton>
-                            <AccordionPanel>
+                            {/* <AccordionPanel>
                                 <AccordionItem borderColor="transparent" borderWidth="0">
                                     <AccordionButton  _hover={{bg:"gray.200"}}>
                                         <Box display={'flex'} gap={2}>
@@ -69,7 +68,7 @@ const Sidebar = () => {
                                         </Box>
                                     </AccordionButton>
                                 </AccordionItem>
-                            </AccordionPanel>
+                            </AccordionPanel> */}
                         </AccordionItem>
                     </Accordion>
                     <Accordion>

@@ -8,6 +8,14 @@ const fetchMostProductBestSellerAsync = async (url) => {
     } catch (error) {
       console.log(error)
     }
-  }
+}
 
-export {fetchMostProductBestSellerAsync}
+const fetchGetBookCountAsync = async (url) => {
+  try {
+    const response = await axios.get(`${url}/api/book/book-count`)
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+export {fetchMostProductBestSellerAsync, fetchGetBookCountAsync}

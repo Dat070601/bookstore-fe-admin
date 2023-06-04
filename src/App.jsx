@@ -12,6 +12,7 @@ import Dashboard from './components/Dashboard/Dashboard'
 import AddProduct from './pages/addProduct'
 import AlertLoginModal from './components/AlertLoginModal'
 import useLocalStorage from './hooks/useLocalStorage'
+import Product from './pages/product'
 
 function  App() {
   const [count, setCount] = useState(0)
@@ -54,7 +55,7 @@ function  App() {
         <Route index path='/' element={<Login />}></Route>
         <Route element={<Sidebar />}>
           <Route path='home' element={<Home />}></Route>
-          <Route path='add-product' element={<AddProduct />}></Route>
+          <Route path='product' element={<Product />}></Route>
         </Route>
       </Routes>
     </div>

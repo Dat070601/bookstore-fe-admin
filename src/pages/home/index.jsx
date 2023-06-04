@@ -1,15 +1,17 @@
 import { Box, Flex, Text, Image, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Icon, TableContainer, Table, Tbody, Tr, Td, Th, Thead } from "@chakra-ui/react";
 import React from 'react'
 import CustomContainer from '../../components/root/CustomContainer'
-import { MdHome} from "react-icons/md";
-import { AiOutlineLineChart } from "react-icons/ai";
-import { BsBookmark } from "react-icons/bs";
-import { RiVipDiamondLine } from "react-icons/ri";
+import { MdAccountBalanceWallet, MdHome} from "react-icons/md";
+import { AiFillBook, AiOutlineLineChart } from "react-icons/ai";
+import { RiBillFill } from "react-icons/ri";
+import {TbSunrise } from "react-icons/tb"
 import HomePageViewModel from "./HomePageViewModel";
 import { COLOR } from "../../constant";
 
 const Home = () => {
   const { booksBestSeller } = HomePageViewModel()
+  const { bookCount } = HomePageViewModel()
+
   console.log(booksBestSeller)
   return (    
     <CustomContainer>
@@ -22,29 +24,41 @@ const Home = () => {
           </Flex>
       </Flex>
       <Flex gap={50}>
-        <Box bgGradient="linear(to-br, yellow.100, pink.400)" minW= "md" p={8} borderRadius="md" position="relative" boxShadow={"2xl"}rounded='md'>
-          <Box display={"flex"} gap={250}>
-            <Text fontSize="lg" fontWeight="semibold" mb={3}>Weekly Sales</Text>
-            <AiOutlineLineChart size={25}/>
+        <Box bgGradient="linear(to-br, yellow.100, pink.400)" w={350} h={110} p={3} borderRadius="md" position="relative" boxShadow={"2xl"} rounded='md'>
+          <Box display={"flex"} gap={5} padding={3}>
+            <TbSunrise size={58}/>
+            <Box mt={-2}>
+              <Text fontSize="3xl" fontWeight="medium">15,0000 $</Text>
+              <Text fontSize="medium" fontWeight="semibold" mb={3}>Weekly Sales</Text>
+            </Box>
           </Box>
-          <Text fontSize="2xl" fontWeight="bold" mb={5}>$ 15,0000</Text>
-          <Text fontSize="sm">Increased by 60%</Text>
         </Box>
-        <Box bgGradient="linear(to-r, blue.100, blue.300 , blue.500)" minW="md" p={8} borderRadius="md" position="relative" boxShadow={"2xl"}rounded='md'>
-          <Box display={"flex"} gap={250}>
-            <Text fontSize="lg" fontWeight="semibold" mb={3}>Weekly Orders</Text>
-            <BsBookmark size={23}/>
+        <Box bgGradient="linear(to-r, blue.100, blue.300 , blue.500)"  w={350} h={110} p={3} borderRadius="md" position="relative" boxShadow={"2xl"}rounded='md'>
+          <Box display={"flex"} gap={5} padding={3}>
+            <RiBillFill size={58}/>
+            <Box mt={-2}>
+              <Text fontSize="3xl" fontWeight="medium">15,0000 $</Text>
+              <Text fontSize="medium" fontWeight="semibold" mb={3}>Weekly Orders</Text>
+            </Box>
           </Box>
-          <Text fontSize="2xl" fontWeight="bold" mb={5}>45,6334</Text>
-          <Text fontSize="sm">Decreased by 10%</Text>
         </Box>
-        <Box bgGradient="linear(to-r,teal.100, teal.300, teal.500)" minW="md" p={8} borderRadius="md" position="relative" boxShadow={"2xl"}rounded='md'>
-          <Box display={'flex'} gap={250}>
-            <Text fontSize="lg" fontWeight="semibold" mb={3}>Visitors Online</Text>
-            <RiVipDiamondLine size={23}/>
+        <Box bgGradient="linear(to-r,teal.100, teal.300, teal.500)" w={350} h={110} p={3} borderRadius="md" position="relative" boxShadow={"2xl"}rounded='md'>
+          <Box display={'flex'} gap={5} padding={3}>
+            <AiFillBook size={58}/>
+            <Box mt={-2}>
+              <Text fontSize="3xl" fontWeight="medium">{bookCount}</Text>
+              <Text fontSize="medium" fontWeight="semibold" mb={3}>Sản phẩm</Text>
+            </Box>
           </Box>
-          <Text fontSize="2xl" fontWeight="bold" mb={5}>95,5741</Text>
-          <Text fontSize="sm">Increased by 5%</Text>
+        </Box>
+        <Box bgGradient="linear(to-r,yellow.100, yellow.300, yellow.500)" w={350} h={110} p={3} borderRadius="md" position="relative" boxShadow={"2xl"}rounded='md'>
+          <Box display={'flex'} gap={5} padding={3}>
+            <MdAccountBalanceWallet size={58}/>
+            <Box mt={-2}>
+              <Text fontSize="3xl" fontWeight="medium">{bookCount}</Text>
+              <Text fontSize="medium" fontWeight="semibold" mb={3}>Ví</Text>
+            </Box>
+          </Box>
         </Box>
       </Flex> 
       <Box rounded={"20px"} boxShadow={"xl"} bg="white" mt="30px" padding={"20px"}>
