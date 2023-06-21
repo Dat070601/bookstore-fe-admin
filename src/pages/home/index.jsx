@@ -1,4 +1,4 @@
-import { Box, Flex, Text, Image, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Icon, TableContainer, Table, Tbody, Tr, Td, Th, Thead } from "@chakra-ui/react";
+import { Box, Flex, Text, Image, Breadcrumb, BreadcrumbItem,Select, Icon, TableContainer, Table, Tbody, Tr, Td, Th, Thead } from "@chakra-ui/react";
 import React from 'react'
 import CustomContainer from '../../components/root/CustomContainer'
 import { MdAccountBalanceWallet, MdHome} from "react-icons/md";
@@ -7,20 +7,54 @@ import { RiBillFill } from "react-icons/ri";
 import {TbSunrise } from "react-icons/tb"
 import HomePageViewModel from "./HomePageViewModel";
 import { COLOR } from "../../constant";
+import RealTime from "../../components/RealTime/RealTime";
+import { Line} from 'react-chartjs-2';
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+  } from 'chart.js';
 
 const Home = () => {
   const { booksBestSeller } = HomePageViewModel()
   const { bookCount } = HomePageViewModel()
+  const { data ,setType,type, dataCountOrderCancel, dataIntervalOrder, dataIntervalCancelOrder, setTypeInterval, typeInterval} = HomePageViewModel();
+  const handleType=(type)=>{
+      setType(type)
+  }
+  const handleTypeInterval = (typeInterval) => {
+    setTypeInterval(typeInterval)
+  }
 
-  console.log(booksBestSeller)
+   const options = {
+      responsive: true,
+      interaction: {
+        mode: 'index',
+        intersect: false,
+      },
+      stacked: false,
+      scales: {
+        y: {
+          type: 'linear',
+          display: true,
+          position: 'left',
+        },
+      },
+    };
   return (    
-    <CustomContainer>
+    <CustomContainer height={"150vh"}>
         <Flex alignItems="center" mb={6}>
           <Flex alignItems="center">
             <Box color="white" mr={2} bg={"blue.500"} p={2} borderRadius={"xl"} boxShadow={"xl"}rounded='md'>
               <Icon as={MdHome} boxSize={7}/>
             </Box>
             <Text fontSize="2xl" fontWeight="medium">Trang chủ</Text>
+            <RealTime/>
           </Flex>
       </Flex>
       <Flex gap={50}>
@@ -61,6 +95,80 @@ const Home = () => {
           </Box>
         </Box>
       </Flex> 
+      <Flex gap={50}>
+          <Box rounded={"20px"} boxShadow={"xl"} bg="white" mt="30px" padding={"20px"} w={"50%"}>
+              <Flex gap={10}>
+                  <Text fontSize={'xl'} fontWeight={'semibold'}>Thống kê số lượng đơn hàng: </Text>
+                  <Select value={type} onChange={(e)=>{
+                      handleType(e.target.value)
+                  }} w={150}>
+                      <option value='Bảy ngày'>Bảy ngày</option>
+                      <option value='Ba mươi ngày'>Ba mươi ngày</option>
+                  </Select>
+              </Flex>
+              <Box w={'full'} mt={5}>
+                  {
+                      data&&(
+                          <Line options={options} data={{
+                              labels:data?.labels?.map((item) => item),
+                              datasets: [
+                                  {
+                                      label: data.title,
+                                      data: data?.data?.map((item) => item),
+                                      borderColor: 'rgb(53, 162, 235)',
+                                      backgroundColor: 'rgba(53, 162, 235, 0.5)',
+                                      yAxisID: 'y',
+                                  },
+                                  {
+                                      label: dataCountOrderCancel.title,
+                                      data: dataCountOrderCancel?.data?.map((item) => item),
+                                      borderColor: 'rgb(255, 99, 132)',
+                                      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                                      yAxisID: 'y',
+                                  }
+                              ],}} />
+                              
+                          )
+                  }
+              </Box>
+          </Box>
+          <Box rounded={"20px"} boxShadow={"xl"} bg="white" mt="30px" padding={"20px"} w={"50%"} >
+              <Flex gap={10}>
+                  <Text fontSize={'xl'} fontWeight={'semibold'}>Thống kê doanh thu bán hàng: </Text>
+                  <Select value={typeInterval} onChange={(e)=>{
+                      handleTypeInterval(e.target.value)
+                  }} w={150}>
+                      <option value='Bảy ngày'>Bảy ngày</option>
+                      <option value='Ba mươi ngày'>Ba mươi ngày</option>
+                  </Select>
+              </Flex>
+              <Box w={'full'} mt={5}>
+                  {
+                      dataIntervalOrder&&(
+                          <Line options={options} data={{
+                              labels:dataIntervalOrder?.labels?.map((item) => item),
+                              datasets: [
+                                  {
+                                      label: dataIntervalOrder.title,
+                                      data: dataIntervalOrder?.data?.map((item) => item),
+                                      borderColor: 'rgb(53, 162, 235)',
+                                      backgroundColor: 'rgba(53, 162, 235, 0.5)',
+                                      yAxisID: 'y',
+                                  },
+                                  {
+                                      label: dataIntervalCancelOrder.title,
+                                      data: dataIntervalCancelOrder?.data?.map((item) => item),
+                                      borderColor: 'rgb(255, 99, 132)',
+                                      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                                      yAxisID: 'y',
+                                  }
+                              ],}} />
+                              
+                          )
+                  }
+              </Box>
+          </Box>
+        </Flex>
       <Box rounded={"20px"} boxShadow={"xl"} bg="white" mt="30px" padding={"20px"}>
           <Text fontSize={'xl'} fontWeight={'semibold'}>Các sản phẩm bán chạy nhất hiện nay:</Text>
           <Box mt={'20px'}> 

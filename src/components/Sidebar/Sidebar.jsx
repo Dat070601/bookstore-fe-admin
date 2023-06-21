@@ -4,13 +4,16 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Logo from "../Logo";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { useDispatch } from 'react-redux';
+import { setMessage } from "../../stores/reducers/MessageReducer";
 
 const Sidebar = () => {
-
+    
+    const dispatch = useDispatch();
     const navigate = useNavigate()
     return (
         <>
-            <Box bg="white" h="100%" w="250px" p="4" position={"absolute"} zIndex={1}>
+            <Box bg="gray.100" h="100%" w="250px" p="4" position={"absolute"} zIndex={1} >
                 <Box as="a" href="/home" display="block" borderColor={'teal'} border={1} mb={5}>
                     <Logo fontSize={35}/>
                 </Box>
@@ -27,7 +30,8 @@ const Sidebar = () => {
                     <Accordion>
                         <AccordionItem borderColor="transparent" borderWidth="0">
                             <AccordionButton onClick={() => {
-                                navigate("/order")
+                                navigate("/order"),
+                                dispatch(setMessage([]))
                             }} _hover={{bg:"gray.200"}}>
                                 Quản lý đơn hàng
                             </AccordionButton>
@@ -42,59 +46,35 @@ const Sidebar = () => {
                             </AccordionButton>
                         </AccordionItem>
                     </Accordion>
+                    <Accordion>
+                        <AccordionItem borderColor="transparent" borderWidth="0">
+                            <AccordionButton onClick={() => {
+                                navigate("/author")
+                            }} _hover={{bg:"gray.200"}}>
+                                Quản lý tác giả
+                            </AccordionButton>
+                        </AccordionItem>
+                    </Accordion>
+                    <Accordion>
+                        <AccordionItem borderColor="transparent" borderWidth="0">
+                            <AccordionButton onClick={() => {
+                                navigate("/publisher")
+                            }} _hover={{bg:"gray.200"}}>
+                                Quản lý Nhà xuất bản
+                            </AccordionButton>
+                        </AccordionItem>
+                    </Accordion>
                     <Accordion allowToggle>
                         <AccordionItem borderColor="transparent" borderWidth="0">
                             <AccordionButton gap={'15px'} _hover={{bg:"gray.200"}} onClick={() =>{
-                                navigate("/product")
+                                navigate("/product/1")
                             }}>
                                 Quản lý sản phẩm
-                            </AccordionButton>
-                            {/* <AccordionPanel>
-                                <AccordionItem borderColor="transparent" borderWidth="0">
-                                    <AccordionButton  _hover={{bg:"gray.200"}}>
-                                        <Box display={'flex'} gap={2}>
-                                            <Box mt={1}>
-                                                <AiOutlineArrowRight/>
-                                            </Box>
-                                            <Link to="/add-product">Thêm sản phẩm</Link>
-                                        </Box>
-                                    </AccordionButton>
-                                    <AccordionButton  _hover={{bg:"gray.200"}}>
-                                        <Box display={'flex'} gap={2}>
-                                            <Box mt={1}>
-                                                <AiOutlineArrowRight/>
-                                            </Box>
-                                            <Link to={""}>Sửa sản phẩm</Link>
-                                        </Box>
-                                    </AccordionButton>
-                                </AccordionItem>
-                            </AccordionPanel> */}
-                        </AccordionItem>
-                    </Accordion>
-                    <Accordion>
-                        <AccordionItem borderColor="transparent" borderWidth="0">
-                            <AccordionButton onClick={() => {
-                                navigate("/dashboard")
-                            }} _hover={{bg:"gray.200"}}>
-                                Chỉ số
-                            </AccordionButton>
-                        </AccordionItem>
-                    </Accordion>
-                    <Accordion>
-                        <AccordionItem borderColor="transparent" borderWidth="0">
-                            <AccordionButton onClick={() => {
-                                navigate("/finance")
-                            }} _hover={{bg:"gray.200"}}>
-                                Tài Chính
                             </AccordionButton>
                         </AccordionItem>
                     </Accordion>
                 </Stack>
                 <Spacer />
-                <Box>
-                    {/* Thêm button hình chuông thông báo ở đây */}
-                    {/* Thêm button ảnh của người dùng ở đây */}
-                </Box>
             </Box>
             <Navbar />
             <Outlet />
