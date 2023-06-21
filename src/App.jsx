@@ -12,7 +12,7 @@ import Author from './pages/author'
 import Publisher from './pages/publisher'
 import { LogoutContext } from './providers/LogoutProvider'
 import Statistical from './pages/statistical'
-import Sidebar from './components/Sidebar/Sidebar.jsx'
+import Sidebar from './components/Sidebar/Sidebar'
 
 function App() {
   const logoutContext = useContext(LogoutContext)
