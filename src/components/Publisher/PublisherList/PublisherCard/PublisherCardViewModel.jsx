@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { publisherSelector } from '../../../../stores/reducers/PublisherReducer'
 import { useFormik } from 'formik'
 import { updatePublisherAsyncThunk } from '../../../../stores/thunks/PublisherThunk'
 
