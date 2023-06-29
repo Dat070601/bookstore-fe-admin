@@ -13,7 +13,7 @@ const OrderViewModel = () => {
   const { isOpen: isSuccessBoxOpen, onOpen: onSuccessBoxOpen, onClose: onSuccessBoxClose } = useDisclosure()
   const dispatch = useDispatch()
 
-  const handleChangeOrderStatus = ({ orderId, statusName }) => {
+  const handleChangeOrderStatus = ({ orderId, statusName, currentStatus }) => {
     dispatch(changeOrderStatusAsyncThunk({
       orderId,
       statusName
@@ -32,6 +32,20 @@ const OrderViewModel = () => {
   useEffect(() => {
     dispatch(getOrdersAsyncThunk())
   }, [])
+
+  // useEffect(() => {
+  //   orders.map(order => {
+  //     if (order?.paymentMethod === "Cash") {
+  //       dispatch(changeOrderStatusAsyncThunk({
+  //         orderId: order.orderId,
+  //         statusName: "Chờ Xác Nhận"
+  //       }))
+  //     }
+  //   })
+  //   return () => {
+  //     dispatch(resetState())
+  //   }
+  // }, [dispatch, orders])
 
   return {
     orders,

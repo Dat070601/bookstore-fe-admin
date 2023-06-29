@@ -10,7 +10,13 @@ import AlertBox from '../../components/AlertBox/AlertBox'
 
 const Order = () => {
 
-  const { orders, handleChangeOrderStatus, onSuccessBoxClose, isSuccessBoxOpen, onProductDetailModalOpen } = OrderViewModel()
+  const { 
+    orders, 
+    handleChangeOrderStatus, 
+    onSuccessBoxClose, 
+    isSuccessBoxOpen, 
+    onProductDetailModalOpen 
+  } = OrderViewModel()
 
   return (
     <CustomContainer height={"120vh"}>
@@ -64,12 +70,12 @@ const Order = () => {
                           <Box>
                             <Select w={"200px"} onChange={(event) => handleChangeOrderStatus({ orderId: order.orderId, statusName: event.target.value })}>
                               <option style={{ background: COLOR, color: "white" }}>{order.orderStatus}</option>
-                              <option value="Đã Thanh Toán">Đã Thanh Toán</option>
-                              <option value="Chờ Xác Nhận">Chờ Xác Nhận</option>
-                              <option value="Đã Giao">Đã Giao</option>
-                              <option value="Đang Vận Chuyển">Đang Vận Chuyển</option>
-                              <option value="Đã Xác Nhận">Đã Xác Nhận</option>
-                              <option value="Đã Hủy">Đã Hủy</option>
+                              <option disabled={order.orderStatus === "Đã Thanh Toán" || order.orderStatus === "Chờ Xác Nhận" || order.orderStatus === "Đã Xác Nhận" || order.orderStatus === "Đang Vận Chuyển" || order.orderStatus === "Đã Giao" || order.orderStatus === "Đã Hủy"} value="Đã Thanh Toán">Đã Thanh Toán</option>
+                              <option disabled={order.orderStatus === "Chờ Xác Nhận" || order.orderStatus === "Đã Xác Nhận" || order.orderStatus === "Đang Vận Chuyển" || order.orderStatus === "Đã Giao" || order.orderStatus === "Đã Hủy"} value="Chờ Xác Nhận">Chờ Xác Nhận</option>
+                              <option disabled={order.orderStatus === "Đã Xác Nhận" || order.orderStatus === "Đang Vận Chuyển" || order.orderStatus === "Đã Giao" || order.orderStatus === "Đã Hủy"} value="Đã Xác Nhận">Đã Xác Nhận</option>
+                              <option disabled={order.orderStatus === "Đang Vận Chuyển" || order.orderStatus === "Đã Giao" || order.orderStatus === "Đã Hủy"} value="Đang Vận Chuyển">Đang Vận Chuyển</option>
+                              <option disabled={order.orderStatus === "Đã Giao" || order.orderStatus === "Đã Hủy"} value="Đã Giao">Đã Giao</option>
+                              <option value="Đã Hủy" disabled={order.orderStatus === "Đã Hủy" || order.orderStatus === "Đã Giao"}>Đã Hủy</option>
                             </Select>
                           </Box>
                         </Box>

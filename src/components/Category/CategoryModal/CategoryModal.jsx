@@ -34,8 +34,8 @@ const CategoryModal = ({ isOpen, onClose }) => {
         <AlertBox 
           isOpen={isAddCategoryAlertBoxOpen}
           onClose={onAddCategoryAlertBoxClose}
-          message={"Thêm danh mục thành công"}
-          title={"Thông báo"}
+          message={"Add category successfully"}
+          title={"Alert"}
         />
       </>
   )
