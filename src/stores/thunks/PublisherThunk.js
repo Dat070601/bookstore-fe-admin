@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { addPublisherAsync, getPublisherAsync, updatePublisherAsync } from "../../api/Publisher";
+import { addPublisherAsync, getPublisherAsync, updatePublisherAsync } from "../../api/publisher";
 import { URL } from "../../constant";
 
 export const getPublisherAsyncThunk = createAsyncThunk("publisher/get-publisher", async () => {
