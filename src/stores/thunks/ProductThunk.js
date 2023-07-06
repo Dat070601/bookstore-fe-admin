@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { fetchGetBookCountAsync, fetchMostProductBestSellerAsync ,fetchGetBooksWithPagination, fetchGetBookMaxPage, addBookAsync } from "../../api/product"
+import { fetchGetBookCountAsync, fetchMostProductBestSellerAsync ,fetchGetBooksWithPagination, fetchGetBookMaxPage, addBookAsync, stopProductionBookAsync, updateBookPriceAsync } from "../../api/product"
 import { URL } from "../../constant"
 
 const fetchProductBestSellerAsyncThunk = createAsyncThunk("product/fetch-product-best-seller", async (payload) => {
@@ -49,10 +49,34 @@ const addBookAsyncThunk = createAsyncThunk("product/add-book", async (payload) =
   }
 })
 
+const stopProductionBookAsyncThunk = createAsyncThunk("product/stop-production-book", async (payload) => {
+  try {
+    const { bookId } = payload
+    const response = await stopProductionBookAsync(URL, {
+      bookId
+    })
+    return response
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+const updateBookPriceAsyncThunk = createAsyncThunk("product/update-book-price", async (payload) => {
+  try {
+    const { bookId, body } = payload
+    const response = await updateBookPriceAsync(URL, bookId, body)
+    return response
+  } catch (error) {
+    console.log(error)
+  }
+})
+
 export { 
   fetchProductBestSellerAsyncThunk, 
   fetchBookCountAsyncThunk, 
   fetchGetBooksWithPaginationAsyncThunk, 
   fetchGetBookMaxPageAsyncThunk,
-  addBookAsyncThunk
+  addBookAsyncThunk,
+  stopProductionBookAsyncThunk,
+  updateBookPriceAsyncThunk
 }

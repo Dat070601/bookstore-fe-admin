@@ -50,6 +50,24 @@ const addBookAsync = async (url, payload, accessToken) => {
   }
 }
 
+const stopProductionBookAsync = async (url, { bookId }) => {
+  try {
+    const response = await axios.put(`${url}/api/book/stop-production-book?bookId=${bookId}`)
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const updateBookPriceAsync = async (url, bookId, payload) => {
+  try {
+    const response = await axios.post(`${url}/api/book/book-price/${bookId}`, payload)
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 
 
 export { 
@@ -57,5 +75,7 @@ export {
   fetchGetBookCountAsync, 
   fetchGetBooksWithPagination, 
   fetchGetBookMaxPage,
-  addBookAsync
+  addBookAsync,
+  stopProductionBookAsync,
+  updateBookPriceAsync
 }

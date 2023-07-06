@@ -13,7 +13,7 @@ const OrderViewModel = () => {
   const { isOpen: isSuccessBoxOpen, onOpen: onSuccessBoxOpen, onClose: onSuccessBoxClose } = useDisclosure()
   const dispatch = useDispatch()
 
-  const handleChangeOrderStatus = ({ orderId, statusName, currentStatus }) => {
+  const handleChangeOrderStatus = ({ orderId, statusName }) => {
     dispatch(changeOrderStatusAsyncThunk({
       orderId,
       statusName
@@ -38,7 +38,7 @@ const OrderViewModel = () => {
   //     if (order?.paymentMethod === "Cash") {
   //       dispatch(changeOrderStatusAsyncThunk({
   //         orderId: order.orderId,
-  //         statusName: "Chờ Xác Nhận"
+  //         statusName: "Đã Xác Nhận"
   //       }))
   //     }
   //   })

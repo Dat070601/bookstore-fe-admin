@@ -6,5 +6,7 @@ export const productState = {
     booksSameCate : [],
     pages: 0,
     bookCount: 0,
-    isCreated: undefined
+    isCreated: undefined,
+    isDeleted: undefined,
+    isUpdated: undefined
 }

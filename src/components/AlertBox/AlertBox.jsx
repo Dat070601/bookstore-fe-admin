@@ -1,12 +1,13 @@
 import React from 'react'
-import { AlertDialog, AlertDialogBody, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogOverlay } from '@chakra-ui/modal'
+import { AlertDialog, AlertDialogBody, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogOverlay, AlertDialogCloseButton } from '@chakra-ui/modal'
 import { Button } from '@chakra-ui/button'
 
-const AlertBox = ({ title, message, isOpen, onClose }) => {
+const AlertBox = ({ title, message, isOpen, onClose, footer = [<Button colorScheme='blue' onClick={() => onClose()}>Ok</Button>] }) => {
   return (
     <AlertDialog isOpen={isOpen}>
       <AlertDialogOverlay />
       <AlertDialogContent>
+        <AlertDialogCloseButton onClick={onClose}/>
         <AlertDialogHeader fontSize='lg' fontWeight='bold'>
           {title}
         </AlertDialogHeader>
@@ -14,7 +15,11 @@ const AlertBox = ({ title, message, isOpen, onClose }) => {
           {message}
         </AlertDialogBody>
         <AlertDialogFooter>
-          <Button colorScheme='blue' onClick={() => onClose()}>Ok</Button>
+          {[...footer].map(component => {
+            return <>
+              {component}
+            </>
+          })}
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

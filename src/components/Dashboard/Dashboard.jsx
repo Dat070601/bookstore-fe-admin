@@ -1,5 +1,5 @@
 import React from 'react'
-import Sidebar from '../Sidebar/Sidebar.jsx'
+import Sidebar from '../sidebar/sidebar'
 import { Switch } from '@chakra-ui/react'
 import { Route } from 'react-router-dom'
 import Navbar from '../Navbar/Navbar'

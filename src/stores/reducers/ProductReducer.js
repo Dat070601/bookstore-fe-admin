@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
-import React from 'react'
 import { productState } from '../initialState/ProductState'
-import { addBookAsyncThunk, fetchBookCountAsyncThunk, fetchGetBookMaxPageAsyncThunk, fetchGetBooksWithPaginationAsyncThunk, fetchProductBestSellerAsyncThunk,  } from '../thunks/ProductThunk'
+import { addBookAsyncThunk, fetchBookCountAsyncThunk, fetchGetBookMaxPageAsyncThunk, fetchGetBooksWithPaginationAsyncThunk, fetchProductBestSellerAsyncThunk, stopProductionBookAsyncThunk, updateBookPriceAsyncThunk,  } from '../thunks/ProductThunk'
 
 const productSlice = createSlice({
     name: "product",
@@ -22,6 +21,12 @@ const productSlice = createSlice({
         })
         builder.addCase(addBookAsyncThunk.fulfilled, (state, action) => {
             state.isCreated = true
+        })
+        builder.addCase(stopProductionBookAsyncThunk.fulfilled, (state, action) => {
+            state.isDeleted = true
+        })
+        builder.addCase(updateBookPriceAsyncThunk.fulfilled, (state, action) => {
+            state.isUpdated = true
         })
     }
 })
