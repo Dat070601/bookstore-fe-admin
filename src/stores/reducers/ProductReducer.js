@@ -5,7 +5,16 @@ import { addBookAsyncThunk, fetchBookCountAsyncThunk, fetchGetBookMaxPageAsyncTh
 const productSlice = createSlice({
     name: "product",
     initialState: productState,
-    reducers: {},
+    reducers: {
+        resetProductIsDeletedState: (state, action) => ({
+            ...state,
+            isDeleted: undefined
+        }),
+        resetProductIsUpdatedState: (state, action) => ({
+            ...state,
+            isUpdated: undefined
+        })
+    },
     extraReducers: (builder) => {
         builder.addCase(fetchProductBestSellerAsyncThunk.fulfilled, (state, action) => {
             state.booksBestSeller = action.payload
@@ -33,7 +42,7 @@ const productSlice = createSlice({
 
 export default productSlice.reducer
 const productSelector = (state) => state.ProductReducer
-
+export const { resetProductIsDeletedState, resetProductIsUpdatedState } = productSlice.actions
 export {
     productSelector
 }

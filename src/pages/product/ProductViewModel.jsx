@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { productSelector } from '../../stores/reducers/ProductReducer'
+import { productSelector, resetProductIsDeletedState, resetProductIsUpdatedState } from '../../stores/reducers/ProductReducer'
 import { useEffect } from 'react'
 import { fetchGetBooksWithPaginationAsyncThunk, fetchBookCountAsyncThunk, fetchGetBookMaxPageAsyncThunk, stopProductionBookAsyncThunk, updateBookPriceAsyncThunk } from '../../stores/thunks/ProductThunk'
 import { useParams } from 'react-router-dom'
@@ -16,6 +16,7 @@ const ProductViewModel = () => {
   const { isOpen: isDeleteProductOpen, onOpen: onDeleteProductOpen, onClose: onDeleteProductClose } = useDisclosure()
   const { isOpen: isEditBookPriceOpen, onOpen: onEditBookPriceOpen, onClose: onEditBookPriceClose } = useDisclosure()
   const { isOpen: isUpdateProductPriceOpen, onOpen: onUpdateProductPriceOpen, onClose: onUpdateProductPriceClose } = useDisclosure()
+  const { isOpen: isDeleteProductSuccessOpen, onOpen: onDeleteProductSuccessOpen, onClose: onDeleteProductSuccessClose } = useDisclosure()
   const [ productId, setProductId ] = useState("")
   const [ newPrice, setNewPrice ] = useState({
     bookDefautPrice: 0,
@@ -54,18 +55,27 @@ const ProductViewModel = () => {
 
   useEffect(() => {
     if (isDeleted === true) {
+      onDeleteProductClose()
+      onDeleteProductSuccessOpen()
       dispatch(fetchGetBooksWithPaginationAsyncThunk({
         page
       }))
+    }
+    return () => {
+      dispatch(resetProductIsDeletedState())
     }
   }, [isDeleted]) 
 
   useEffect(() => {
     if (isUpdated === true) {
+      onEditBookPriceClose()
       onUpdateProductPriceOpen()
       dispatch(fetchGetBooksWithPaginationAsyncThunk({
         page
       }))
+    }
+    return () => {
+      dispatch(resetProductIsUpdatedState())
     }
   }, [isUpdated])
 
@@ -113,12 +123,15 @@ const ProductViewModel = () => {
     isUpdateProductPriceOpen,
     productId,
     newPrice,
+    isDeleteProductSuccessOpen,
     onEditBookPriceClose,
     onEditBookPriceOpen,
     onDeleteProductClose,
     onDeleteProductOpen,
     onUpdateProductPriceOpen,
     onUpdateProductPriceClose,
+    onDeleteProductSuccessOpen,
+    onDeleteProductSuccessClose,
     handleNavigatePage,
     handleGoToNextPage,
     handleGoToPreviousPage,
@@ -126,7 +139,7 @@ const ProductViewModel = () => {
     handleSetProductId,
     handleGetProductToUpdatePrice,
     handleChangeInput,
-    handleUpdateBookPrice
+    handleUpdateBookPrice,
   }
 }
 

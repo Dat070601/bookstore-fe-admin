@@ -12,7 +12,7 @@ function RealTime() {
 
   useEffect(() => {
     const newConnection = new signalR.HubConnectionBuilder()
-      .withUrl("https://localhost:7149/myhub")
+      .withUrl("https://dat-bookstore.azurewebsites.net/myhub")
       .build();
 
     setConnection(newConnection);

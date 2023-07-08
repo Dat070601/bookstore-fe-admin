@@ -32,6 +32,8 @@ const Product = () => {
     onEditBookPriceClose,
     onEditBookPriceOpen,
     onUpdateProductPriceClose,
+    isDeleteProductSuccessOpen,
+    onDeleteProductSuccessClose
   } = ProductViewModel()
   const navigate = useNavigate()
 
@@ -158,8 +160,14 @@ const Product = () => {
         <AlertBox 
           isOpen={isUpdateProductPriceOpen}
           onClose={onUpdateProductPriceClose}
-          title={"alert"}
-          message={"Cập nhật giá tiền sản phẩm thành công ?"}
+          title={"Thông báo"}
+          message={"Cập nhật giá tiền sản phẩm thành công."}
+        />
+        <AlertBox 
+          isOpen={isDeleteProductSuccessOpen}
+          onClose={onDeleteProductSuccessClose}
+          title={"Thông báo"}
+          message={"Sản phẩm đã được ngừng kinh doanh."}
         />
     </CustomContainer>
   )
