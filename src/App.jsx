@@ -34,7 +34,7 @@ function App() {
           onClose={onLogoutModalClose}
           reLogin={() => {
             onLogoutModalClose()
-            window.location.href = "/login"
+            window.location.href = "#/"
           }}
       />
       <Routes>

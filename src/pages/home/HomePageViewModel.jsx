@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { productSelector } from '../../stores/reducers/ProductReducer';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchBookCountAsyncThunk, fetchProductBestSellerAsyncThunk } from '../../stores/thunks/ProductThunk';
+import { fetchBookCountAsyncThunk, fetchProductBestSellerAsyncThunk, fetchWalletAsyncThunk } from '../../stores/thunks/ProductThunk';
 import { useState } from 'react';
 import { fetchGetCountOrderAsyncThunk, fetchGetCountOrderCancelAsyncThunk, fetchGetIntervalOrderAsyncThunk, fetchGetIntervalOrderCancelAsyncThunk } from '../../stores/thunks/StatisticalThunk';
 import { statisticalSelector } from '../../stores/reducers/StatisticalReducer';
@@ -10,6 +10,7 @@ const HomePageViewModel = () => {
     const dispatch = useDispatch()
     const {booksBestSeller} = useSelector(productSelector)
     const {bookCount} = useSelector(productSelector)
+    const {wallet} = useSelector(productSelector)
     const [ type , setType] = useState("Bảy ngày")
     const [ typeInterval, setTypeInterval ] = useState("Bảy ngày")
     const { data, dataCountOrderCancel, dataIntervalOrder, dataIntervalCancelOrder } = useSelector(statisticalSelector)
@@ -27,6 +28,7 @@ const HomePageViewModel = () => {
     useEffect(() => {
         dispatch(fetchProductBestSellerAsyncThunk(null))
         dispatch(fetchBookCountAsyncThunk(null))
+        dispatch(fetchWalletAsyncThunk(null))
     },[dispatch])
     
     useEffect(() => {
@@ -38,6 +40,7 @@ const HomePageViewModel = () => {
         data,
         setType,
         setTypeInterval,
+        wallet,
         type,
         typeInterval,
         dataCountOrderCancel,

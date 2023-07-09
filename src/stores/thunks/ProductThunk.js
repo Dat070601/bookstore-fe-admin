@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { fetchGetBookCountAsync, fetchMostProductBestSellerAsync ,fetchGetBooksWithPagination, fetchGetBookMaxPage, addBookAsync, stopProductionBookAsync, updateBookPriceAsync } from "../../api/product"
+import { fetchGetBookCountAsync, fetchMostProductBestSellerAsync ,fetchGetBooksWithPagination, fetchGetBookMaxPage, addBookAsync, stopProductionBookAsync, updateBookPriceAsync, fetchGetWWalletAsync } from "../../api/product"
 import { URL } from "../../constant"
 
 const fetchProductBestSellerAsyncThunk = createAsyncThunk("product/fetch-product-best-seller", async (payload) => {
@@ -71,8 +71,18 @@ const updateBookPriceAsyncThunk = createAsyncThunk("product/update-book-price", 
   }
 })
 
+const fetchWalletAsyncThunk = createAsyncThunk("product/fetch-wallet", async (payload) => {
+  try {
+    const response = await fetchGetWWalletAsync(URL)
+    return response
+  } catch (error) {
+    console.log(error)
+  }
+})
+
 export { 
-  fetchProductBestSellerAsyncThunk, 
+  fetchProductBestSellerAsyncThunk,
+  fetchWalletAsyncThunk,
   fetchBookCountAsyncThunk, 
   fetchGetBooksWithPaginationAsyncThunk, 
   fetchGetBookMaxPageAsyncThunk,

@@ -23,6 +23,7 @@ import {
 const Home = () => {
   const { booksBestSeller } = HomePageViewModel()
   const { bookCount } = HomePageViewModel()
+  const { wallet } = HomePageViewModel()
   const { data ,setType,type, dataCountOrderCancel, dataIntervalOrder, dataIntervalCancelOrder, setTypeInterval, typeInterval} = HomePageViewModel();
   const handleType=(type)=>{
       setType(type)
@@ -89,7 +90,7 @@ const Home = () => {
           <Box display={'flex'} gap={5} padding={3}>
             <MdAccountBalanceWallet size={58}/>
             <Box mt={-2}>
-              <Text fontSize="3xl" fontWeight="medium">{bookCount}</Text>
+              <Text fontSize="3xl" fontWeight="medium">{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND'}).format(wallet)}</Text>
               <Text fontSize="medium" fontWeight="semibold" mb={3}>Ví</Text>
             </Box>
           </Box>

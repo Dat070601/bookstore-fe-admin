@@ -8,5 +8,6 @@ export const productState = {
     bookCount: 0,
     isCreated: undefined,
     isDeleted: undefined,
-    isUpdated: undefined
+    isUpdated: undefined,
+    wallet: 0
 }

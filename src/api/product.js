@@ -28,6 +28,15 @@ const fetchGetBookMaxPage = async (url) => {
   }
 }
 
+const fetchGetWWalletAsync = async (url) => {
+  try {
+    const response = await axios.get(`${url}/api/user/wallet`)
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 const fetchGetBooksWithPagination = async (url, { page }) => {
   try {
     const response = await axios.get(`${url}/api/book?page=${page}`)
@@ -70,7 +79,8 @@ const updateBookPriceAsync = async (url, bookId, payload) => {
 
 
 
-export { 
+export {
+  fetchGetWWalletAsync, 
   fetchMostProductBestSellerAsync, 
   fetchGetBookCountAsync, 
   fetchGetBooksWithPagination, 
