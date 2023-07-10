@@ -10,7 +10,7 @@ const Logo = ({ fontSize }) => {
         fontWeight={'semibold'}
         color={COLOR}
     >
-        <Link to={'https://cap-stone-project-fe.vercel.app/'}>
+        <Link to={'https://bookstore-fe-admin.vercel.app/'}>
             <Text as={"span"} fontWeight={"light"}>Book</Text>
             <Text as={"span"} fontWeight={"bold"}>FAST</Text>
         </Link>

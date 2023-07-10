@@ -48,11 +48,11 @@ const AddProduct = () => {
             <form onSubmit={formik.handleSubmit}>
               <FormControl my="20px">
                 <FormLabel>Tên sách</FormLabel>
-                <Input name="bookName" placeholder='tên sách...' onChange={formik.handleChange}/>
+                <Input name="bookName" placeholder='tên sách...' onChange={formik.handleChange} required/>
               </FormControl>
               <FormControl my="20px">
                 <FormLabel>Danh mục</FormLabel>
-                <Select name="categoryId" onChange={formik.handleChange}>
+                <Select name="categoryId" onChange={formik.handleChange} required>
                   <option value="">Chọn danh mục</option>
                   {categories?.map(category => {
                     return (
@@ -70,7 +70,7 @@ const AddProduct = () => {
               </FormControl>
               <FormControl my="20px">
                 <FormLabel>Tác giả</FormLabel>
-                <Select name="authorId" onChange={formik.handleChange}>
+                <Select name="authorId" onChange={formik.handleChange} required>
                   <option value="">Chọn tác giả</option>
                   {authors.map(author => {
                     return (
@@ -81,7 +81,7 @@ const AddProduct = () => {
               </FormControl>
               <FormControl my="20px">
                 <FormLabel>Nhà xuất bản</FormLabel>
-                <Select name="publisherId" onChange={formik.handleChange}>
+                <Select name="publisherId" onChange={formik.handleChange} required>
                   <option value="">Chọn nhà xuất bản</option>
                   {publishers.map(publisher => {
                     return (
@@ -99,11 +99,11 @@ const AddProduct = () => {
               </FormControl>
               <FormControl my="20px">
                 <FormLabel>Giá mặc định</FormLabel>
-                <Input name="price.bookDefaultPrice" placeholder='giá mặc định...' type='number' onChange={formik.handleChange}/>
+                <Input name="price.bookDefaultPrice" placeholder='giá mặc định...' type='number' onChange={formik.handleChange} required/>
               </FormControl>
               <FormControl my="20px">
                 <FormLabel>Giá khuyến mãi</FormLabel>
-                <Input name="price.bookSalePrice" placeholder='giá khuyến mãi...' type='number' onChange={formik.handleChange}/>
+                <Input name="price.bookSalePrice" placeholder='giá khuyến mãi...' type='number' onChange={formik.handleChange} required/>
               </FormControl>
               <FormControl my="20px">
                 <FormLabel>Mô tả</FormLabel>
@@ -111,19 +111,19 @@ const AddProduct = () => {
               </FormControl>
               <FormControl my="20px">
                 <FormLabel>Số lượng</FormLabel>
-                <Input name="quantity" placeholder='Số lượng...' type='number' onChange={formik.handleChange}/>
+                <Input name="quantity" placeholder='Số lượng...' type='number' onChange={formik.handleChange} required/>
               </FormControl>
               <FormControl my="20px">
                 <FormLabel>Số trang</FormLabel>
-                <Input name="numPage" placeholder='số trang...' type='number' onChange={formik.handleChange}/>
+                <Input name="numPage" placeholder='số trang...' type='number' onChange={formik.handleChange} required/>
               </FormControl>
               <FormControl my="20px">
                 <FormLabel>Ngày kích hoạt</FormLabel>
-                <Field name="price.activationDate" placeholder='ngày kích hoạt...' type='datetime-local' onChange={formik.handleChange}/>
+                <Field name="price.activationDate" placeholder='ngày kích hoạt...' type='datetime-local' onChange={formik.handleChange} required/>
               </FormControl>
               <FormControl my="20px">
                 <FormLabel>Ngày hết hạn</FormLabel>
-                <Field name="price.expirationDate" placeholder='ngày hết hạn...' type='datetime-local' onChange={formik.handleChange}/>
+                <Field name="price.expirationDate" placeholder='ngày hết hạn...' type='datetime-local' onChange={formik.handleChange} required/>
               </FormControl>
               <Button type="submit" bg={COLOR} color="white" _hover={{
                 opacity: "80%"
