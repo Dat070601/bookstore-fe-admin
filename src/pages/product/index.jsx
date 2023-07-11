@@ -140,7 +140,7 @@ const Product = () => {
             <form onSubmit={handleUpdateBookPrice.bind(this, {
               bookId: productId,
               body: {
-                bookDefautPrice: newPrice.bookDefautPrice,
+                bookDefaultPrice: newPrice.bookDefaultPrice,
                 bookSalePrice: newPrice.bookSalePrice,
                 activationDate: newPrice.activationDate,
                 expirationDate: newPrice.expirationDate
