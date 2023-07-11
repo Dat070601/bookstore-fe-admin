@@ -19,7 +19,7 @@ const ProductViewModel = () => {
   const { isOpen: isDeleteProductSuccessOpen, onOpen: onDeleteProductSuccessOpen, onClose: onDeleteProductSuccessClose } = useDisclosure()
   const [ productId, setProductId ] = useState("")
   const [ newPrice, setNewPrice ] = useState({
-    bookDefautPrice: 0,
+    bookDefaultPrice: 0,
     bookSalePrice: 0,
     activationDate: null,
     expirationDate: null
