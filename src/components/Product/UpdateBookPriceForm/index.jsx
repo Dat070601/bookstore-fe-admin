@@ -6,7 +6,7 @@ const UpdateBookPriceForm = ({ handleChangeInput }) => {
     <>
       <FormControl>
         <FormLabel>Giá mặc định</FormLabel>
-        <Input name="bookDefautPrice" onChange={handleChangeInput} />
+        <Input name="bookDefaultPrice" onChange={handleChangeInput} />
       </FormControl>
       <FormControl>
         <FormLabel>Giá sale</FormLabel>
