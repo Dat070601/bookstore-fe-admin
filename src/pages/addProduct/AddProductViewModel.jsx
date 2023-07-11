@@ -35,7 +35,7 @@ const AddProductViewModel = () => {
       authorId: "",
       imageUrls: [],
       price: {
-        bookDefautPrice: 0,
+        bookDefaultPrice: 0,
         bookSalePrice: 0,
         activationDate: "",
         expirationDate: ""
