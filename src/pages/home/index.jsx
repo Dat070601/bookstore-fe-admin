@@ -58,8 +58,8 @@ const Home = () => {
             <RealTime/>
           </Flex>
       </Flex>
-      <Flex gap={50}>
-        <Box bgGradient="linear(to-br, yellow.100, pink.400)" w={350} h={110} p={3} borderRadius="md" position="relative" boxShadow={"2xl"} rounded='md'>
+      <Flex gap={450}>
+        {/* <Box bgGradient="linear(to-br, yellow.100, pink.400)" w={350} h={110} p={3} borderRadius="md" position="relative" boxShadow={"2xl"} rounded='md'>
           <Box display={"flex"} gap={5} padding={3}>
             <TbSunrise size={58}/>
             <Box mt={-2}>
@@ -76,8 +76,8 @@ const Home = () => {
               <Text fontSize="medium" fontWeight="semibold" mb={3}>Weekly Orders</Text>
             </Box>
           </Box>
-        </Box>
-        <Box bgGradient="linear(to-r,teal.100, teal.300, teal.500)" w={350} h={110} p={3} borderRadius="md" position="relative" boxShadow={"2xl"}rounded='md'>
+        </Box> */}
+        <Box bgGradient="linear(to-r,teal.100, teal.300, teal.500)" w={350} h={110} p={3} borderRadius="md" position="relative" boxShadow={"2xl"}rounded='md' ml={200}>
           <Box display={'flex'} gap={5} padding={3}>
             <AiFillBook size={58}/>
             <Box mt={-2}>

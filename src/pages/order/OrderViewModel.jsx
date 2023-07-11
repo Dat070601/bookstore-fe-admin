@@ -26,6 +26,7 @@ const OrderViewModel = () => {
     } 
     return () => {
       dispatch(resetState())
+      dispatch(getOrdersAsyncThunk())
     }
   }, [isOrderStateChange])
 
