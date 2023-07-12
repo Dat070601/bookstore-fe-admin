@@ -136,8 +136,8 @@ const AddProduct = () => {
         <AlertBox 
           isOpen={isAddProductSuccessBoxOpen}
           onClose={onAddProductSuccessBoxClose}
-          message={"Add product successfully"}
-          title={"Alert"}
+          message={"Thêm sản phẩm thành công!"}
+          title={"Thông báo"}
         />
       </>
     </FormikProvider>
