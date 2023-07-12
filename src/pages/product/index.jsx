@@ -58,13 +58,13 @@ const Product = () => {
                   <Thead border={"1px solid"}>
                     <Tr>
                       <Th textAlign={'center'} fontSize={"md"}>No</Th>
-                      <Th textAlign={'center'} fontSize={"md"}>Book Image</Th>
-                      <Th textAlign={'center'} fontSize={"md"}>Book Name</Th>
-                      <Th textAlign={'center'} fontSize={"md"}>Book Category</Th>
-                      <Th textAlign={'center'} fontSize={"md"}>Book Author</Th>
-                      <Th textAlign={'center'} fontSize={"md"}>Sale price</Th>
-                      <Th textAlign={'center'} fontSize={"md"}>Current price</Th>
-                      <Th textAlign={'center'} fontSize={"md"}>Action</Th>
+                      <Th textAlign={'center'} fontSize={"md"}>Hình ảnh</Th>
+                      <Th textAlign={'center'} fontSize={"md"}>Tên sách</Th>
+                      <Th textAlign={'center'} fontSize={"md"}>Thể loại</Th>
+                      <Th textAlign={'center'} fontSize={"md"}>Tác giả</Th>
+                      <Th textAlign={'center'} fontSize={"md"}>Giá khuyến mãi</Th>
+                      <Th textAlign={'center'} fontSize={"md"}>Gía gốc</Th>
+                      <Th textAlign={'center'} fontSize={"md"}>Thao tác</Th>
                     </Tr>
                   </Thead>
                 {books?.map((book, index) => {

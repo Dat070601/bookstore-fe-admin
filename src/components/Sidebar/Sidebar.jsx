@@ -60,7 +60,7 @@ const Sidebar = () => {
                             <AccordionButton onClick={() => {
                                 navigate("/publisher")
                             }} _hover={{bg:"gray.200"}}>
-                                Quản lý Nhà xuất bản
+                                Quản lý nhà xuất bản
                             </AccordionButton>
                         </AccordionItem>
                     </Accordion>
